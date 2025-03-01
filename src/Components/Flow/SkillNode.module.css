@@ -1,0 +1,35 @@
+.node{
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: flex-start;
+    overflow: hidden;
+    transition: all 0.1s ease-in-out;
+    width: 100%;
+    z-index: 1;
+}
+
+.node:hover{
+    overflow: visible;
+}
+
+.box{
+    height: 100%;
+    height: 150px;
+    padding: 5px;
+    width: 100%;
+}
+
+.canActivate{
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.boxInActive{
+    background-color: rgb(196, 196, 196);
+    border-color: white rgb(85, 85, 85) rgb(85, 85, 85) white; 
+}
+
+.boxActive{
+    background-color: transparent;
+}

@@ -1,0 +1,78 @@
+.app {
+    align-items: center;
+    background: radial-gradient(234.87% 178.55% at 56.7% -21.68%, 
+        #FDB040 9.03%, 
+        #FC435B 12.24%, 
+        #9C0068 15.3%, 
+        #700F7E 18.35%, 
+        #431A89 21.84%, 
+        #020031 27.58%);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    padding: 0 20px;
+}
+
+.header {
+    font-size: 2em;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.title {
+    font-size: 1em;
+}
+
+.logoLetter{
+    border-radius: 100%;
+    border: 1px solid #fff;
+    height: 28px;
+    margin: 0 1px;
+    position: relative;
+    top: 3px;
+    width: 28px;
+}
+
+.sLogo{
+    height: 31px;
+    margin: 0 1px;
+    position: relative;
+    top: 2px;
+    width: 16px;
+
+}
+
+.subtitle{
+    font-size: 0.6em;
+}
+
+.mainContainer{
+    align-items: flex-start;
+    display: flex;
+    gap: 30px;
+    height: 60vh;
+    justify-content: center;
+    margin: 50px 0 0;
+    position: relative;
+    width: 100%;
+}
+
+@media screen and (width >= 768px) {
+    .title {
+      font-size: 1.5em;
+    }
+    .logoLetter{
+        width: 40px;
+        height: 40px;
+        top: 3px;
+    }
+    .sLogo{
+        top: 3px;
+        width: 25px;
+        height: 48px;
+    }
+    .subtitle{
+        font-size: 0.8em;
+    }
+  }
