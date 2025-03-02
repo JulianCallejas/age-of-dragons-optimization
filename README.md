@@ -1,7 +1,9 @@
 <h1 align="center" > Age of Dragons - Skill Tree Optimization Project </h1>
 
 <p align="center">
-  <img src="https://juliancallejas.github.io/age-of-dragons-optimization/img/logo200.webp" width="200" alt="Age of Dragons Logo" />
+    <a href="https://juliancallejas.github.io/age-of-dragons-optimization/" target="_blank" rel="noreferrer">
+      <img src="https://juliancallejas.github.io/age-of-dragons-optimization/img/logo200.webp" width="200" alt="Age of Dragons Logo" />
+    </a>
 </p>
 
 Dragon Skill Tree is a React-based project focused on optimizing re-renders in a skill tree visualization. The project uses **React Flow** and **Redux Toolkit** to manage and display a dynamic skill tree while ensuring that only updated nodes re-render, improving performance.
