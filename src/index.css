@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    letter-spacing: 0.025em;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #020031;
+    color: #fff;
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 400;
+}
+
+.cinzel-decorative-regular {
+    font-family: "Cinzel Decorative", serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.cinzel-decorative-bold {
+    font-family: "Cinzel Decorative", serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.cinzel-decorative-black {
+    font-family: "Cinzel Decorative", serif;
+    font-style: normal;
+    font-weight: 900;
+}
+
+.react-flow__edge-path {
+    stroke: white !important;
+    stroke-width: 4px !important;
+
+}
+
+ .react-flow__node:hover {
+    z-index: 1 !important;
+ }
+
+ .bganimation:first-child {
+    animation: bg-animation 30s infinite linear 15s ;
+ }
+
+ .bganimation:nth-child(2) {
+    animation: bg-animation 30s infinite linear;
+ }
+ 
+ @keyframes bg-animation {
+    0%, 40%, 100% {
+        opacity: 1;
+    }
+    50%, 90%{
+        opacity: 0;
+    }
+  }

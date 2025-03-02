@@ -1,0 +1,33 @@
+.logContainer{
+    background-color: #282828;
+    background-position: 0px 0px;
+    background-size: 100% 100%;
+    border-radius: 10px;
+    height: 100%;
+    overflow: hidden;
+    padding: 20px;
+    width: 20%;
+}
+
+.logTitle{
+    font-size: 1em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.logBox{
+    font-size: 0.8em;
+    height: 90%;
+    line-height: 1.8em;
+    list-style: none;
+    overflow-y: auto;
+    text-align: left;
+    width: 100%;
+}
+
+.logTable{
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+}
