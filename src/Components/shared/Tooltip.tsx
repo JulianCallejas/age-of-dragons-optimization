@@ -10,7 +10,7 @@ const Tooltip = () => {
 
     const dispatch = useAppDispatch();
     useEffect(() => {
-        dispatch(onAddLog("tooltip-icon.webp"));
+        dispatch(onAddLog("tooltip-icon"));
     });    
 
     return (
