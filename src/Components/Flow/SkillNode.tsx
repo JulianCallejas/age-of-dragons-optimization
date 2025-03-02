@@ -1,63 +1,51 @@
-import clsx from "clsx";
-import styles from "./SkillNode.module.css";
-import { useTooltip } from "../../hooks/useTooltip";
-import { useSkillTree } from "../../hooks/useSkillTree";
+import { CSSProperties, memo, useEffect } from "react";
 import { Handle, Position } from "@xyflow/react";
-import { CSSProperties, useEffect } from "react";
-
+import clsx from "clsx";
 import Card3dCharacter from "../Card/Card3dCharacter/Card3dCharacter";
-import { useAppDispatch } from "../../store";
-import { onAddLog } from "../../store/logSlice";
+import { useNode } from "../../hooks/useNode";
+import styles from "./SkillNode.module.css";
 
-export interface ISkillNodeProps {
+interface ISkillNodeProps {
     data: {
         id: string;
-        image: string;
-        name: string;
         width: number;
     };
-
 }
 
 const dotStyle: CSSProperties = {
     opacity: 0
 }
-const SkillNode = ({ data }: ISkillNodeProps) => {
 
-    const dispatch = useAppDispatch();
-
+const SkillNode: React.FC<ISkillNodeProps> = memo(({ data }: ISkillNodeProps) => {
     
+    const { skill, addLog, showTooltip, updateSkill } = useNode(data.id);
+
     useEffect(() => {
-        dispatch(onAddLog(`${data.image}`));
+        addLog();
     });
-
-
-    const { showTooltip } = useTooltip();
-    const { updateSkill, getSkillById, canActivate } = useSkillTree();
-    const skill = getSkillById(data.id);
 
     return (
         <div className={clsx(
             styles.node,
-            canActivate(skill.id) && styles.canActivate
-    )}
+            skill.canActivate && styles.canActivate
+        )}
             data-tooltip-id="AOD-tooltip"
-            onMouseEnter={() => { showTooltip!(skill.id) }}
-            style={{ width: data.width, height: data.width}}
+            onMouseEnter={ showTooltip }
+            style={{ width: data.width, height: data.width }}
         >
             <div
                 className={clsx(
                     styles.box,
-                    canActivate(skill.id) && styles.canActivate
+                    skill.canActivate && styles.canActivate
                 )}
-                onClick={() => { updateSkill(data.id) }}
+                onClick={ updateSkill }
             >
-                <Card3dCharacter img={data.image} canActivate={canActivate(skill.id)} isActive={skill.isActive}  />
+                <Card3dCharacter img={skill.image} canActivate={skill.canActivate} isActive={skill.isActive} />
                 <div className={clsx(
                     styles.activateFilter,
-                    !canActivate(skill.id) && styles.cantActivate,
+                    !skill.canActivate && styles.cantActivate,
                     skill.isActive && styles.boxActive,
-                    )} 
+                )}
                 ></div>
                 <Handle
                     type="target"
@@ -75,7 +63,9 @@ const SkillNode = ({ data }: ISkillNodeProps) => {
                 />
             </div>
         </div>
-    )
-}
+    );
+});
+
+SkillNode.displayName = 'SkillNode';
 
 export default SkillNode

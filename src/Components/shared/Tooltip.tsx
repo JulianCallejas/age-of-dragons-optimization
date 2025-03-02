@@ -1,17 +1,14 @@
 import { Tooltip as ReactTooltip } from "react-tooltip"
 import styles from "./Tooltip.module.css";
 import { useTooltip } from "../../hooks/useTooltip";
-import { useAppDispatch } from "../../store";
-import { onAddLog } from "../../store/logSlice";
 import { useEffect } from "react";
 
 const Tooltip = () => {
-    const { title, message } = useTooltip();
+    const { title, message, addLog } = useTooltip();
 
-    const dispatch = useAppDispatch();
     useEffect(() => {
-        dispatch(onAddLog("tooltip-icon.webp"));
-    });    
+        addLog!();
+    });
 
     return (
         <ReactTooltip

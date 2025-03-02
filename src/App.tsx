@@ -15,7 +15,7 @@ function App() {
                     <h1 className={styles.title} >Age of Drag<span><img src="./img/Logo100.webp" alt="logo" className={styles.logoLetter} /></span>n<span><img src="./img/s-dragon.webp" alt="logo" className={styles.sLogo} /></span></h1>
                     <h5 className={styles.subtitle} >A skill tree project</h5>
                 </div>
-                <a className={styles.navLink} href="../after">after optimization</a>
+                <a className={styles.navLink} href="../before">before optimization</a>
             </section>
             <main className={styles.mainContainer}>
                 <SkillTree />

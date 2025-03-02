@@ -1,9 +1,9 @@
 import { nanoid } from "nanoid";
-import { IAgeOfDragonSkillTreeData, INodePosition, ISkillTree } from "../interfaces";
+import { IAgeOfDragonSkillTreeData, INodePosition, INormalizeSkillTreeData, ISkillTree, ITreeEdges, ITreeNodes } from "../interfaces";
 
-export const normalizeSkillTreeData = (data: IAgeOfDragonSkillTreeData): {skillTree: ISkillTree, root: string, paths: string[][]} => { 
+export const normalizeSkillTreeData = (data: IAgeOfDragonSkillTreeData): INormalizeSkillTreeData => { 
     const skillTree: ISkillTree = {};
-    if (!data.name) return {skillTree, root: '', paths: []};
+    if (!data.name) return {skillTree, root: '', paths: [], nodes: [], edges: []};
     const initialId = "root";
     const {childrenArray, paths} = mapChildren(data.children, initialId, skillTree);
     skillTree[initialId] = {
@@ -14,6 +14,7 @@ export const normalizeSkillTreeData = (data: IAgeOfDragonSkillTreeData): {skillT
         children: childrenArray,
         parent: initialId,
         isActive: false,
+        canActivate: true
     };
     
     const positionDict = genPositions(paths, skillTree);
@@ -21,7 +22,11 @@ export const normalizeSkillTreeData = (data: IAgeOfDragonSkillTreeData): {skillT
         skillTree[key].position = positionDict![key];
     });
     
-    return {skillTree, root: initialId, paths};
+    const nodes = genNodes(skillTree);
+    const edges = genEdges(skillTree, initialId);
+
+
+    return {skillTree, root: initialId, paths, nodes, edges};
 };
 
 function mapChildren(children:IAgeOfDragonSkillTreeData[], parent: string, skillTree: ISkillTree, newpath: string[] = [], paths: string[][] = []): {childrenArray: string[], paths: string[][]} {
@@ -41,6 +46,7 @@ function mapChildren(children:IAgeOfDragonSkillTreeData[], parent: string, skill
             children: childrenArray,
             parent: parent,
             isActive: false,
+            canActivate: false
         };
         return childId;
     });
@@ -94,3 +100,32 @@ function genPositions(paths: string[][], skillTree: ISkillTree) {
             return positionsXY;
 }
 
+function genNodes(skillTree: ISkillTree): ITreeNodes[] {
+    const width = 100;
+        return Object.values(skillTree).reverse().map((item) => ({
+          id: item.id,
+          type: 'skillNode',
+          data: { 
+            id: item.id,
+            width
+          },
+          position: { x: item.position!.x * width * 1.5, y: item.position!.y * width * 1.2 },
+        }));
+}
+
+function genEdges(skillTree: ISkillTree, skillTreeRoot: string): ITreeEdges[] {
+    return Object.values(skillTree).reduce((acc: {id: string, source: string, target: string, sourceHandle: string, targetHandle: string, type: string}[], item) => {
+        if (item.id === skillTreeRoot) return acc;
+          if (item.parent && skillTree[item.parent]) {
+          acc.push({
+            id: `${item.parent}-${item.id}`,
+            source: item.parent,
+            target: item.id,
+            sourceHandle: 'right',
+            targetHandle: 'left',
+            type: 'default',
+          });
+        }
+        return acc;
+      }, []);
+}
