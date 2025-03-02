@@ -19,7 +19,7 @@ export const useTooltip = (): ITooltip => {
 
     const addLog  = useCallback(
         () => {
-          dispatch(onAddLog("tooltip-icon.webp"));
+          dispatch(onAddLog("tooltip-icon"));
         },
       [dispatch]);
 
