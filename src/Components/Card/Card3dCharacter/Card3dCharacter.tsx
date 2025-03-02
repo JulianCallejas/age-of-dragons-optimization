@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Card3dHoloEffect from '../Card3dHoloEffect/Card3dHoloEffect';
 import styles from './Card3dCharacter.module.css';
+import { URL } from '../../../config/config';
 
 interface Props {
     img: string;
@@ -19,7 +20,7 @@ const Card3dCharacter = ({ img, canActivate, isActive }: Props) => {
                     !isActive && styles.inactive
                 )}
             >
-                <img className={styles["cover-image"]} src={`./img/${img}.webp`} />
+                <img className={styles["cover-image"]} src={`${URL}/img/${img}.webp`} />
             </div>
             <div className={styles.light}></div>
             <div className={styles.character}>

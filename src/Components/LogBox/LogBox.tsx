@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useAppSelector } from "../../store";
 import styles from "./LogBox.module.css";
+import { URL } from "../../config/config";
 
 const LogBox = () => {
 
@@ -22,7 +23,7 @@ const LogBox = () => {
                         {ids.map((id) => (
                             <tr key={id}>
                                 <td align="center">
-                                    <img src={`./img/${id}.webp`} alt="node" width="25px" height="25px" />
+                                    <img src={`${URL}/img/${id}.webp`} alt="node" width="25px" height="25px" />
                                 </td>
                                 <td align="center" >{logs[id]}</td>
                             </tr>
