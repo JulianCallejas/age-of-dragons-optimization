@@ -99,7 +99,6 @@ const imagesToPreload = [
     "logo200.webp",
     "Loop.webp",
     "LoopNoBG.webp",
-    "of Dragons.webp",
     "OffensiveAbilities.webp",
     "OffensiveAbilitiesNoBG.webp",
     "PoisonEnchantment.webp",
