@@ -1,7 +1,7 @@
 <h1 align="center" > Age of Dragons - Skill Tree Optimization Project </h1>
 
 <p align="center">
-    <a href="https://juliancallejas.github.io/age-of-dragons-optimization/">
+    <a href="https://juliancallejas.github.io/age-of-dragons-optimization/" target="_blank" rel="noreferrer">
       <img src="https://juliancallejas.github.io/age-of-dragons-optimization/img/logo200.webp" width="200" alt="Age of Dragons Logo" />
     </a>
 </p>
