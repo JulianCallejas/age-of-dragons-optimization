@@ -1,7 +1,7 @@
 import styles from "./AnimatedBG.module.css"
 import clsx from 'clsx';
 
-const images = ["./img/boardbg.webp", "./img/boardbg2.webp", "./img/boardbg3.webp", "./img/boardbg4.webp", "./img/boardbg5.webp"]
+const images = ["../img/boardbg.webp", "../img/boardbg2.webp", "../img/boardbg3.webp", "../img/boardbg4.webp", "../img/boardbg5.webp"]
 const img = images[Math.floor(Math.random() * images.length)];
 const img2 = images[Math.floor(Math.random() * images.length)];
 
