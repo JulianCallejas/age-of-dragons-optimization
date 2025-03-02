@@ -1,0 +1,1 @@
+export const URL: string = import.meta.env.VITE_SKILL_TREE_URL as string || "http://localhost:3000";
